@@ -1,0 +1,29 @@
+# Derlenmiş binary dosyalar
+converter
+reader
+validate
+
+# Derlenmiş object dosyaları
+*.o
+
+# Çalıştırılabilir diğer dosyalar
+*.out
+*.exe
+
+# Geçici dosyalar
+*~
+*.swp
+.DS_Store
+
+# logdata.dat gibi proje tarafından üretilen geçici binary veriler
+logdata.dat
+
+# XML ve XSD çıktı dosyaları (İstersen kendin tutup tutmama seçimi yapabilirsin)
+logdata.xml
+*.xsd
+
+# VSCode klasörü (lokal editor ayarları için)
+.vscode/
+
+# backup dosyaları
+*.bak

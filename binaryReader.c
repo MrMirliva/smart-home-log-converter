@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "binaryReader.h"
+
+Record* read_binary_file(const char *filename, int *record_count) {
+    FILE *fp = fopen(filename, "rb");
+    if (!fp) {
+        perror("Binary dosyası açılamadı");
+        return NULL;
+    }
+
+    // Dosyanın boyutunu öğren
+    fseek(fp, 0, SEEK_END);
+    long filesize = ftell(fp);
+    rewind(fp);
+
+    // Kaç kayıt olduğunu hesapla
+    int count = filesize / sizeof(Record);
+    *record_count = count;
+
+    // Kayıtları okuyacak alanı ayır
+    Record *records = (Record *)malloc(count * sizeof(Record));
+    if (!records) {
+        perror("Bellek ayıramadı");
+        fclose(fp);
+        return NULL;
+    }
+
+    fread(records, sizeof(Record), count, fp);
+
+    fclose(fp);
+    return records;
+}
