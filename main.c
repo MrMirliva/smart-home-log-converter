@@ -1,51 +1,92 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "setupParams.h"
 #include "binaryReader.h"
 #include "sort_records.h"
+#include "xmlWriter.h"
 
+// Global değişkenler
 int keyStart = 0;
 int keyEnd = 7;
 int orderAsc = 1;
 
 // Fonksiyon prototipleri
+// Fonksiyon prototipleri
+void csv_to_binary(const char* input_csv, const char* output_binary, int separator, int opsys);
+void binary_to_xml(const char* output_xml, int separator, int opsys);
+void validate_xml(const char* input_xml, const char* xsd_file);
+void display_help();
+
+// csv_to_binary fonksiyonunda kullanılacak küçük yardımcı fonksiyonlar
 char get_separator(int separator_arg);
 void trim_newline(char *str);
 void parse_csv_line(char *line, Record *record, char separator);
 
-// gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c -ljson-c -lxml2 -o converter
-// ./converter -separator 1 -opsys 2
+// gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c xmlWriter.c -I/usr/include/libxml2 -ljson-c -lxml2 -o deviceTool
+// ./deviceTool <input_file> <output_file> <conversion_type> -separator <1|2|3> -opsys <1|2|3> [-h]
 
 int main(int argc, char *argv[]) {
-    if (argc < 5) {
-        printf("Kullanım: %s -separator <1|2|3> -opsys <1|2|3>\n", argv[0]);
+    if (argc < 6) {
+        printf("Eksik argüman! Yardım için ./deviceTool -h\n");
         return 1;
     }
 
-    int separator_arg = 0;
-    int opsys_arg = 0;
-
-    // Komut satırı argümanlarını parse et
+    // Eğer -h verildiyse yardımı göster
     for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "-separator") == 0 && i + 1 < argc) {
-            separator_arg = atoi(argv[++i]);
-        } else if (strcmp(argv[i], "-opsys") == 0 && i + 1 < argc) {
-            opsys_arg = atoi(argv[++i]);
-        } else if (strcmp(argv[i], "-h") == 0) {
-            printf("Kullanım: %s -separator <1=virgul,2=tab,3=noktalı-virgul> -opsys <1=windows,2=linux,3=macos>\n", argv[0]);
+        if (strcmp(argv[i], "-h") == 0) {
+            display_help();
             return 0;
         }
     }
 
-    char separator = get_separator(separator_arg);
-    if (separator == '\0') {
-        printf("Geçersiz separator değeri! 1, 2 veya 3 olmalı.\n");
+    // Argümanları oku
+    char* input_file = argv[1];
+    char* output_file = argv[2];
+    int conversion_type = atoi(argv[3]);
+    int separator = -1;
+    int opsys = -1;
+
+    for (int i = 4; i < argc; i++) {
+        if (strcmp(argv[i], "-separator") == 0 && (i + 1) < argc) {
+            separator = atoi(argv[++i]);
+        } else if (strcmp(argv[i], "-opsys") == 0 && (i + 1) < argc) {
+            opsys = atoi(argv[++i]);
+        }
+    }
+
+    if (separator == -1 || opsys == -1) {
+        printf("Hata: -separator ve -opsys parametreleri eksik!\n");
         return 1;
     }
 
-    
+    // İşlem tipi seçimi
+    switch (conversion_type) {
+        case 1:
+            csv_to_binary(input_file, output_file, separator, opsys);
+            break;
+        case 2:
+            binary_to_xml(output_file, separator, opsys); // output XML dosyası
+            break;
+        case 3:
+            validate_xml(input_file, output_file);
+            break;
+        default:
+            printf("Hata: Geçersiz conversion_type! (1, 2 veya 3 olmalı)\n");
+            return 1;
+    }
+
+    return 0;
+}
+
+// CSV to Binary fonksiyonu
+void csv_to_binary(const char* input_csv, const char* output_binary, int separator_arg, int opsys_arg) {
+    char separator = get_separator(separator_arg);
+    if (separator == '\0') {
+        printf("Geçersiz separator değeri! 1, 2 veya 3 olmalı.\n");
+        return;
+    }
+
     SetupParams params;
     if (readSetupParams("setupParams.json", &params)) {
         printf("\n✅ setupParams.json dosyasından okunan değerler:\n");
@@ -54,36 +95,34 @@ int main(int argc, char *argv[]) {
         printf("Key End: %d\n", params.keyEnd);
         printf("Order: %s\n", params.order);
 
-        // <<< BURAYA EKLİYORSUN >>>
         keyStart = params.keyStart;
         keyEnd = params.keyEnd;
         orderAsc = (strcmp(params.order, "ASC") == 0) ? 1 : 0;
 
     } else {
         printf("❌ setupParams.json dosyası okunamadı!\n");
+        return;
     }
 
-
     // CSV dosyasını oku
-    FILE *csv = fopen("smartlogs.csv", "r");
+    FILE *csv = fopen(input_csv, "r");
     if (!csv) {
         perror("CSV dosyası açılamadı");
-        return 1;
+        return;
     }
 
     // Binary dosyasını aç
-    FILE *bin = fopen("logdata.dat", "wb");
+    FILE *bin = fopen(output_binary, "wb");
     if (!bin) {
         perror("Binary dosyası açılamadı");
         fclose(csv);
-        return 1;
+        return;
     }
 
     char line[512]; // Bir satır için buffer
     fgets(line, sizeof(line), csv); // İlk satır başlık, atla
 
     while (fgets(line, sizeof(line), csv)) {
-        //printf("Satır okundu: %s\n", line);
         trim_newline(line);
 
         Record rec;
@@ -98,26 +137,49 @@ int main(int argc, char *argv[]) {
     fclose(bin);
 
     printf("\n✅ CSV'den binary dosyaya başarıyla dönüştürüldü.\n");
+}
 
-    // Binary dosyasını oku ve belleğe al
+// Binary to XML fonksiyonu (şimdilik boş)
+void binary_to_xml(const char* output_xml, int separator, int opsys) {
+    // 1. SetupParams.json dosyasını oku
+    SetupParams params;
+    if (!readSetupParams("setupParams.json", &params)) {
+        printf("❌ setupParams.json dosyası okunamadı!\n");
+        return;
+    }
+    keyStart = params.keyStart;
+    keyEnd = params.keyEnd;
+    orderAsc = (strcmp(params.order, "ASC") == 0) ? 1 : 0;
+
+    // 2. Binary dosyasını oku
     int record_count = 0;
-    Record *records = read_binary_file("logdata.dat", &record_count);
-
+    Record* records = read_binary_file("logdata.dat", &record_count);
     if (records == NULL) {
         printf("❌ Binary dosyadan veri okunamadı!\n");
-        return 1;
+        return;
     }
 
     printf("✅ Toplam %d kayıt yüklendi!\n", record_count);
 
-    // İleride sıralama ve XML yazımı burada olacak
+    // 3. RAM'deki kayıtları sırala
+    sort_records(records, record_count);
+    printf("✅ Kayıtlar sıralandı!\n");
 
-    free(records); // Bellek temizliği
+    // 4. Sıralı kayıtları XML dosyasına yaz
+    create_xml(records, record_count, output_xml);
+    printf("✅ XML dosyası oluşturuldu: %s\n", output_xml);
 
-    return 0;
+    // 5. Belleği temizle
+    free(records);
 }
 
-// Separator değerine göre ayırıcı karakter döndürür
+// XML Validation fonksiyonu (şimdilik boş)
+void validate_xml(const char* input_xml, const char* xsd_file) {
+    printf("[validate_xml] çalıştı: %s ile %s doğrulaması yapılacak\n", input_xml, xsd_file);
+    // Buraya XML Validation kodu yazılacak
+}
+
+// separator değerine göre ayırıcı döndürür
 char get_separator(int separator_arg) {
     switch (separator_arg) {
         case 1: return ','; // Virgül
@@ -127,7 +189,7 @@ char get_separator(int separator_arg) {
     }
 }
 
-// Satır sonlarındaki '\n', '\r' karakterlerini temizler
+// Satır sonlarındaki '\n' veya '\r' karakterlerini temizler
 void trim_newline(char *str) {
     int len = strlen(str);
     while (len > 0 && (str[len-1] == '\n' || str[len-1] == '\r')) {
@@ -157,4 +219,22 @@ void parse_csv_line(char *line, Record *record, char separator) {
         field++;
         token = strtok(NULL, &separator);
     }
+}
+
+// Yardım mesajı fonksiyonu
+void display_help() {
+    printf("\n# Usage:\n");
+    printf("./deviceTool <input_file> <output_file> <conversion_type> -separator <1|2|3> -opsys <1|2|3> [-h]\n");
+    printf("\n# Arguments:\n");
+    printf("<input_file>   = Kaynak dosya\n");
+    printf("<output_file>  = Hedef dosya\n");
+    printf("<conversion_type> = 1: CSV->Binary, 2: Binary->XML, 3: XML Validation\n");
+    printf("-separator <1|2|3>  = Alan ayırıcı (1=virgül, 2=tab, 3=semicolon)\n");
+    printf("-opsys <1|2|3>      = Satır sonu karakteri (1=Windows, 2=Linux, 3=MacOS)\n");
+    printf("\n# Optional Flags:\n");
+    printf("-h                  Yardım mesajı gösterir\n");
+    printf("\n# Examples:\n");
+    printf("./deviceTool smartlogs.csv logdata.dat 1 -separator 1 -opsys 2\n");
+    printf("./deviceTool smartlogs.dat smartlogs.xml 2 -separator 1 -opsys 2\n");
+    printf("./deviceTool smartlogs.xml smartlogs.xsd 3 -separator 1 -opsys 2\n");
 }

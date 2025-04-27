@@ -2,6 +2,7 @@
 converter
 reader
 validate
+deviceTool
 
 # Derlenmiş object dosyaları
 *.o
