@@ -25,11 +25,6 @@ void trim_newline(char *str);
 void parse_csv_line(char *line, Record *record, char separator);
 
 // gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c xmlWriter.c -I/usr/include/libxml2 -ljson-c -lxml2 -o deviceTool
-// ./deviceTool <input_file> <output_file> <conversion_type> -separator <1|2|3> -opsys <1|2|3> [-h]
-
-//./deviceTool smartlogs.csv logdata.dat 1 -separator 1 -opsys 2
-//./deviceTool logdata.dat logdata.xml 2 -separator 1 -opsys 2
-//./deviceTool logdata.xml logdata.xsd 3 -separator 1 -opsys 2
 
 int main(int argc, char *argv[]) {
     if (argc < 6) {
