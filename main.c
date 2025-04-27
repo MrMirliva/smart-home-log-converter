@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <libxml/xmlschemas.h> 
 #include "setupParams.h"
 #include "binaryReader.h"
 #include "sort_records.h"
@@ -25,6 +26,10 @@ void parse_csv_line(char *line, Record *record, char separator);
 
 // gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c xmlWriter.c -I/usr/include/libxml2 -ljson-c -lxml2 -o deviceTool
 // ./deviceTool <input_file> <output_file> <conversion_type> -separator <1|2|3> -opsys <1|2|3> [-h]
+
+//./deviceTool smartlogs.csv logdata.dat 1 -separator 1 -opsys 2
+//./deviceTool logdata.dat logdata.xml 2 -separator 1 -opsys 2
+//./deviceTool logdata.xml logdata.xsd 3 -separator 1 -opsys 2
 
 int main(int argc, char *argv[]) {
     if (argc < 6) {
@@ -139,7 +144,7 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
     printf("\n✅ CSV'den binary dosyaya başarıyla dönüştürüldü.\n");
 }
 
-// Binary to XML fonksiyonu (şimdilik boş)
+// Binary to XML fonksiyonu
 void binary_to_xml(const char* output_xml, int separator, int opsys) {
     // 1. SetupParams.json dosyasını oku
     SetupParams params;
@@ -173,10 +178,59 @@ void binary_to_xml(const char* output_xml, int separator, int opsys) {
     free(records);
 }
 
-// XML Validation fonksiyonu (şimdilik boş)
+// XML Validation fonksiyonu
 void validate_xml(const char* input_xml, const char* xsd_file) {
-    printf("[validate_xml] çalıştı: %s ile %s doğrulaması yapılacak\n", input_xml, xsd_file);
-    // Buraya XML Validation kodu yazılacak
+    xmlDocPtr doc;
+    xmlSchemaPtr schema = NULL;
+    xmlSchemaParserCtxtPtr ctxt;
+
+    // XML dosyasını oku
+    doc = xmlReadFile(input_xml, NULL, 0);
+    if (doc == NULL) {
+        printf("❌ XML dosyası okunamadı: %s\n", input_xml);
+        return;
+    }
+
+    // XSD dosyasını oku
+    ctxt = xmlSchemaNewParserCtxt(xsd_file);
+    if (ctxt == NULL) {
+        printf("❌ XSD dosyası açılamadı: %s\n", xsd_file);
+        xmlFreeDoc(doc);
+        return;
+    }
+
+    schema = xmlSchemaParse(ctxt);
+    xmlSchemaFreeParserCtxt(ctxt);
+
+    if (schema == NULL) {
+        printf("❌ XSD şeması parse edilemedi.\n");
+        xmlFreeDoc(doc);
+        return;
+    }
+
+    xmlSchemaValidCtxtPtr valid_ctxt = xmlSchemaNewValidCtxt(schema);
+    if (valid_ctxt == NULL) {
+        printf("❌ Validation context oluşturulamadı.\n");
+        xmlSchemaFree(schema);
+        xmlFreeDoc(doc);
+        return;
+    }
+
+    // Validate işlemi
+    int ret = xmlSchemaValidateDoc(valid_ctxt, doc);
+    if (ret == 0) {
+        printf("✅ XML dosyası başarıyla doğrulandı!\n");
+    } else if (ret > 0) {
+        printf("❌ XML dosyası şemaya uygun DEĞİL!\n");
+    } else {
+        printf("❌ Validation işlemi sırasında hata oluştu.\n");
+    }
+
+    // Bellek temizliği
+    xmlSchemaFreeValidCtxt(valid_ctxt);
+    xmlSchemaFree(schema);
+    xmlFreeDoc(doc);
+    xmlCleanupParser();
 }
 
 // separator değerine göre ayırıcı döndürür
