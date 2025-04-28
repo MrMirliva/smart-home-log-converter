@@ -21,7 +21,6 @@ logdata.dat
 
 # XML ve XSD çıktı dosyaları (İstersen kendin tutup tutmama seçimi yapabilirsin)
 logdata.xml
-*.xsd
 
 # VSCode klasörü (lokal editor ayarları için)
 .vscode/

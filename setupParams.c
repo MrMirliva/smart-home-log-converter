@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <json-c/json.h> // Debian'da json-c paketi var
+#include <json-c/json.h>
 #include "setupParams.h"
 
 int readSetupParams(const char *filename, SetupParams *params) {

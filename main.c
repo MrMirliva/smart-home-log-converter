@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <libxml/xmlschemas.h> 
+
+//
 #include "setupParams.h"
 #include "binaryReader.h"
 #include "sort_records.h"
@@ -12,7 +14,6 @@ int keyStart = 0;
 int keyEnd = 7;
 int orderAsc = 1;
 
-// Fonksiyon prototipleri
 // Fonksiyon prototipleri
 void csv_to_binary(const char* input_csv, const char* output_binary, int separator, int opsys);
 void binary_to_xml(const char* output_xml, int separator, int opsys);
@@ -28,16 +29,9 @@ void parse_csv_line(char *line, Record *record, char separator);
 
 int main(int argc, char *argv[]) {
     if (argc < 6) {
-        printf("Eksik argüman! Yardım için ./deviceTool -h\n");
+        printf("Eksik argüman!n");
+        display_help();
         return 1;
-    }
-
-    // Eğer -h verildiyse yardımı göster
-    for (int i = 1; i < argc; i++) {
-        if (strcmp(argv[i], "-h") == 0) {
-            display_help();
-            return 0;
-        }
     }
 
     // Argümanları oku
@@ -280,8 +274,6 @@ void display_help() {
     printf("<conversion_type> = 1: CSV->Binary, 2: Binary->XML, 3: XML Validation\n");
     printf("-separator <1|2|3>  = Alan ayırıcı (1=virgül, 2=tab, 3=semicolon)\n");
     printf("-opsys <1|2|3>      = Satır sonu karakteri (1=Windows, 2=Linux, 3=MacOS)\n");
-    printf("\n# Optional Flags:\n");
-    printf("-h                  Yardım mesajı gösterir\n");
     printf("\n# Examples:\n");
     printf("./deviceTool smartlogs.csv logdata.dat 1 -separator 1 -opsys 2\n");
     printf("./deviceTool smartlogs.dat smartlogs.xml 2 -separator 1 -opsys 2\n");
