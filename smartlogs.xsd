@@ -23,6 +23,18 @@
                         <!-- Event kodu: 0-255 arası, ekstra bilgiler attribute olarak -->
                         <xs:element name="event_code">
                             <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:integer">
+                                        <xs:attribute name="hexBig" type="xs:string" use="required"/>
+                                        <xs:attribute name="hexLittle" type="xs:string" use="required"/>
+                                        <xs:attribute name="decimal" type="xs:string" use="required"/>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+
+                        <!-- <xs:element name="event_code">
+                            <xs:complexType>
                             <xs:simpleContent>
                                 <xs:extension base="eventCodeType">
                                 <xs:attribute name="hexBig" type="xs:string" use="required"/>
@@ -31,7 +43,7 @@
                                 </xs:extension>
                             </xs:simpleContent>
                             </xs:complexType>
-                        </xs:element>
+                        </xs:element> -->
 
                     </xs:sequence>
 
@@ -126,6 +138,17 @@
         </xs:restriction>
     </xs:simpleType>
 
+
+    <!-- 
+        Şu hatalar var:
+        smartlogs.xml:49: element firmware_ver: Schemas validity error : Element 'firmware_ver': [facet 'pattern'] The value '' is not accepted by the pattern 'v[0-9]+\.[0-9]+\.[0-9]+'.
+        smartlogs.xml:77: element firmware_ver: Schemas validity error : Element 'firmware_ver': [facet 'pattern'] The value '' is not accepted by the pattern 'v[0-9]+\.[0-9]+\.[0-9]+'.
+        smartlogs.xml:259: element firmware_ver: Schemas validity error : Element 'firmware_ver': [facet 'pattern'] The value '' is not accepted by the pattern 'v[0-9]+\.[0-9]+\.[0-9]+'.
+        smartlogs.xml:329: element firmware_ver: Schemas validity error : Element 'firmware_ver': [facet 'pattern'] The value '' is not accepted by the pattern 'v[0-9]+\.[0-9]+\.[0-9]+'.
+        smartlogs.xml:679: element firmware_ver: Schemas validity error : Element 'firmware_ver': [facet 'pattern'] The value '' is not accepted by the pattern 'v[0-9]+\.[0-9]+\.[0-9]+'.
+        ❌ XML dosyası şemaya uygun DEĞİL! 
+    -->
+    
     <xs:simpleType name="firmwareType">
         <xs:restriction base="xs:string">
             <xs:pattern value="v[0-9]+\.[0-9]+\.[0-9]+"/>

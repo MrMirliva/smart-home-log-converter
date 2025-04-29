@@ -12,7 +12,7 @@
       <battery>1</battery>
     </metrics>
     <timestamp>2025-03-11T16:28:03</timestamp>
-    <event_code hexBig="006D" hexLittle="6D00" decimal="109">109</event_code>
+    <event_code hexBig="0000006D" hexLittle="6D000000" decimal="1828716544">109</event_code>
   </entry>
   <entry id="2">
     <device>
@@ -26,7 +26,7 @@
       <battery>69</battery>
     </metrics>
     <timestamp>2025-01-31T17:16:56</timestamp>
-    <event_code hexBig="00EA" hexLittle="EA00" decimal="234">234</event_code>
+    <event_code hexBig="000000EA" hexLittle="EA000000" decimal="3925868544">234</event_code>
   </entry>
   <entry id="3">
     <device>
@@ -40,7 +40,7 @@
       <battery>31</battery>
     </metrics>
     <timestamp>2025-01-31T21:43:15</timestamp>
-    <event_code hexBig="0055" hexLittle="5500" decimal="85">85</event_code>
+    <event_code hexBig="00000055" hexLittle="55000000" decimal="1426063360">85</event_code>
   </entry>
   <entry id="4">
     <device>
@@ -54,7 +54,7 @@
       <battery>0</battery>
     </metrics>
     <timestamp>2025-01-19T17:23:03</timestamp>
-    <event_code hexBig="00CC" hexLittle="CC00" decimal="204">204</event_code>
+    <event_code hexBig="000000CC" hexLittle="CC000000" decimal="3422552064">204</event_code>
   </entry>
   <entry id="5">
     <device>
@@ -68,7 +68,7 @@
       <battery>65</battery>
     </metrics>
     <timestamp>2025-03-11T20:36:51</timestamp>
-    <event_code hexBig="0059" hexLittle="5900" decimal="89">89</event_code>
+    <event_code hexBig="00000059" hexLittle="59000000" decimal="1493172224">89</event_code>
   </entry>
   <entry id="6">
     <device>
@@ -82,7 +82,7 @@
       <battery>57</battery>
     </metrics>
     <timestamp>2025-03-16T08:31:11</timestamp>
-    <event_code hexBig="0090" hexLittle="9000" decimal="144">144</event_code>
+    <event_code hexBig="00000090" hexLittle="90000000" decimal="2415919104">144</event_code>
   </entry>
   <entry id="7">
     <device>
@@ -96,7 +96,7 @@
       <battery>99</battery>
     </metrics>
     <timestamp>2025-03-13T01:22:15</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00000000" hexLittle="00000000" decimal="0">0</event_code>
   </entry>
   <entry id="8">
     <device>
@@ -110,7 +110,7 @@
       <battery>65</battery>
     </metrics>
     <timestamp>2025-03-09T14:44:02</timestamp>
-    <event_code hexBig="0023" hexLittle="2300" decimal="35">35</event_code>
+    <event_code hexBig="00000023" hexLittle="23000000" decimal="587202560">35</event_code>
   </entry>
   <entry id="9">
     <device>
@@ -124,7 +124,7 @@
       <battery>98</battery>
     </metrics>
     <timestamp>2025-02-14T23:24:13</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00000000" hexLittle="00000000" decimal="0">0</event_code>
   </entry>
   <entry id="10">
     <device>
@@ -138,7 +138,7 @@
       <battery>43</battery>
     </metrics>
     <timestamp>2025-02-13T09:52:41</timestamp>
-    <event_code hexBig="00F3" hexLittle="F300" decimal="243">243</event_code>
+    <event_code hexBig="000000F3" hexLittle="F3000000" decimal="4076863488">243</event_code>
   </entry>
   <entry id="11">
     <device>
@@ -152,7 +152,7 @@
       <battery>63</battery>
     </metrics>
     <timestamp>2025-02-24T09:34:56</timestamp>
-    <event_code hexBig="00AD" hexLittle="AD00" decimal="173">173</event_code>
+    <event_code hexBig="000000AD" hexLittle="AD000000" decimal="2902458368">173</event_code>
   </entry>
   <entry id="12">
     <device>
@@ -166,7 +166,7 @@
       <battery>98</battery>
     </metrics>
     <timestamp/>
-    <event_code hexBig="00E2" hexLittle="E200" decimal="226">226</event_code>
+    <event_code hexBig="000000E2" hexLittle="E2000000" decimal="3791650816">226</event_code>
   </entry>
   <entry id="13">
     <device>
@@ -180,7 +180,7 @@
       <battery>30</battery>
     </metrics>
     <timestamp>2025-01-28T01:35:40</timestamp>
-    <event_code hexBig="00F1" hexLittle="F100" decimal="241">241</event_code>
+    <event_code hexBig="000000F1" hexLittle="F1000000" decimal="4043309056">241</event_code>
   </entry>
   <entry id="14">
     <device>
@@ -194,7 +194,7 @@
       <battery>100</battery>
     </metrics>
     <timestamp>2025-03-29T12:45:49</timestamp>
-    <event_code hexBig="008D" hexLittle="8D00" decimal="141">141</event_code>
+    <event_code hexBig="0000008D" hexLittle="8D000000" decimal="2365587456">141</event_code>
   </entry>
   <entry id="15">
     <device>
@@ -208,7 +208,7 @@
       <battery>34</battery>
     </metrics>
     <timestamp>2025-03-05T07:25:05</timestamp>
-    <event_code hexBig="0018" hexLittle="1800" decimal="24">24</event_code>
+    <event_code hexBig="00000018" hexLittle="18000000" decimal="402653184">24</event_code>
   </entry>
   <entry id="16">
     <device>
@@ -222,7 +222,7 @@
       <battery>0</battery>
     </metrics>
     <timestamp>2025-01-26T05:41:34</timestamp>
-    <event_code hexBig="00EE" hexLittle="EE00" decimal="238">238</event_code>
+    <event_code hexBig="000000EE" hexLittle="EE000000" decimal="3992977408">238</event_code>
   </entry>
   <entry id="17">
     <device>
@@ -236,7 +236,7 @@
       <battery>92</battery>
     </metrics>
     <timestamp>2025-01-29T02:09:03</timestamp>
-    <event_code hexBig="0095" hexLittle="9500" decimal="149">149</event_code>
+    <event_code hexBig="00000095" hexLittle="95000000" decimal="2499805184">149</event_code>
   </entry>
   <entry id="18">
     <device>
@@ -250,7 +250,7 @@
       <battery>65</battery>
     </metrics>
     <timestamp>2025-02-12T22:03:53</timestamp>
-    <event_code hexBig="00AD" hexLittle="AD00" decimal="173">173</event_code>
+    <event_code hexBig="000000AD" hexLittle="AD000000" decimal="2902458368">173</event_code>
   </entry>
   <entry id="19">
     <device>
@@ -264,7 +264,7 @@
       <battery>58</battery>
     </metrics>
     <timestamp>2025-01-24T13:40:23</timestamp>
-    <event_code hexBig="00E1" hexLittle="E100" decimal="225">225</event_code>
+    <event_code hexBig="000000E1" hexLittle="E1000000" decimal="3774873600">225</event_code>
   </entry>
   <entry id="20">
     <device>
@@ -278,7 +278,7 @@
       <battery>28</battery>
     </metrics>
     <timestamp>2025-02-25T10:28:21</timestamp>
-    <event_code hexBig="0036" hexLittle="3600" decimal="54">54</event_code>
+    <event_code hexBig="00000036" hexLittle="36000000" decimal="905969664">54</event_code>
   </entry>
   <entry id="21">
     <device>
@@ -292,7 +292,7 @@
       <battery>100</battery>
     </metrics>
     <timestamp>2025-03-10T13:17:53</timestamp>
-    <event_code hexBig="00D5" hexLittle="D500" decimal="213">213</event_code>
+    <event_code hexBig="000000D5" hexLittle="D5000000" decimal="3573547008">213</event_code>
   </entry>
   <entry id="22">
     <device>
@@ -306,7 +306,7 @@
       <battery>8</battery>
     </metrics>
     <timestamp>2025-02-26T19:19:32</timestamp>
-    <event_code hexBig="003E" hexLittle="3E00" decimal="62">62</event_code>
+    <event_code hexBig="0000003E" hexLittle="3E000000" decimal="1040187392">62</event_code>
   </entry>
   <entry id="23">
     <device>
@@ -320,7 +320,7 @@
       <battery>54</battery>
     </metrics>
     <timestamp>2025-03-19T12:53:38</timestamp>
-    <event_code hexBig="001A" hexLittle="1A00" decimal="26">26</event_code>
+    <event_code hexBig="0000001A" hexLittle="1A000000" decimal="436207616">26</event_code>
   </entry>
   <entry id="24">
     <device>
@@ -334,7 +334,7 @@
       <battery>73</battery>
     </metrics>
     <timestamp/>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00000000" hexLittle="00000000" decimal="0">0</event_code>
   </entry>
   <entry id="25">
     <device>
@@ -348,7 +348,7 @@
       <battery>88</battery>
     </metrics>
     <timestamp>2025-03-23T06:46:55</timestamp>
-    <event_code hexBig="00E6" hexLittle="E600" decimal="230">230</event_code>
+    <event_code hexBig="000000E6" hexLittle="E6000000" decimal="3858759680">230</event_code>
   </entry>
   <entry id="26">
     <device>
@@ -362,7 +362,7 @@
       <battery>66</battery>
     </metrics>
     <timestamp>2025-03-18T19:36:41</timestamp>
-    <event_code hexBig="003C" hexLittle="3C00" decimal="60">60</event_code>
+    <event_code hexBig="0000003C" hexLittle="3C000000" decimal="1006632960">60</event_code>
   </entry>
   <entry id="27">
     <device>
@@ -376,7 +376,7 @@
       <battery>9</battery>
     </metrics>
     <timestamp>2025-01-26T12:08:15</timestamp>
-    <event_code hexBig="00BB" hexLittle="BB00" decimal="187">187</event_code>
+    <event_code hexBig="000000BB" hexLittle="BB000000" decimal="3137339392">187</event_code>
   </entry>
   <entry id="28">
     <device>
@@ -390,7 +390,7 @@
       <battery>38</battery>
     </metrics>
     <timestamp>2025-03-03T15:38:40</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00000000" hexLittle="00000000" decimal="0">0</event_code>
   </entry>
   <entry id="29">
     <device>
@@ -404,7 +404,7 @@
       <battery>23</battery>
     </metrics>
     <timestamp>2025-01-06T21:47:07</timestamp>
-    <event_code hexBig="00E1" hexLittle="E100" decimal="225">225</event_code>
+    <event_code hexBig="000000E1" hexLittle="E1000000" decimal="3774873600">225</event_code>
   </entry>
   <entry id="30">
     <device>
@@ -418,7 +418,7 @@
       <battery>42</battery>
     </metrics>
     <timestamp>2025-02-14T18:02:11</timestamp>
-    <event_code hexBig="0047" hexLittle="4700" decimal="71">71</event_code>
+    <event_code hexBig="00000047" hexLittle="47000000" decimal="1191182336">71</event_code>
   </entry>
   <entry id="31">
     <device>
@@ -432,7 +432,7 @@
       <battery>10</battery>
     </metrics>
     <timestamp>2025-03-19T06:28:25</timestamp>
-    <event_code hexBig="0080" hexLittle="8000" decimal="128">128</event_code>
+    <event_code hexBig="00000080" hexLittle="80000000" decimal="2147483648">128</event_code>
   </entry>
   <entry id="32">
     <device>
@@ -446,7 +446,7 @@
       <battery>48</battery>
     </metrics>
     <timestamp>2025-02-20T18:32:57</timestamp>
-    <event_code hexBig="000F" hexLittle="0F00" decimal="15">15</event_code>
+    <event_code hexBig="0000000F" hexLittle="0F000000" decimal="251658240">15</event_code>
   </entry>
   <entry id="33">
     <device>
@@ -460,7 +460,7 @@
       <battery>24</battery>
     </metrics>
     <timestamp>2025-02-26T22:08:02</timestamp>
-    <event_code hexBig="00AE" hexLittle="AE00" decimal="174">174</event_code>
+    <event_code hexBig="000000AE" hexLittle="AE000000" decimal="2919235584">174</event_code>
   </entry>
   <entry id="34">
     <device>
@@ -474,7 +474,7 @@
       <battery>24</battery>
     </metrics>
     <timestamp>2025-01-03T09:12:17</timestamp>
-    <event_code hexBig="00CB" hexLittle="CB00" decimal="203">203</event_code>
+    <event_code hexBig="000000CB" hexLittle="CB000000" decimal="3405774848">203</event_code>
   </entry>
   <entry id="35">
     <device>
@@ -488,7 +488,7 @@
       <battery>8</battery>
     </metrics>
     <timestamp>2025-01-28T16:29:09</timestamp>
-    <event_code hexBig="0098" hexLittle="9800" decimal="152">152</event_code>
+    <event_code hexBig="00000098" hexLittle="98000000" decimal="2550136832">152</event_code>
   </entry>
   <entry id="36">
     <device>
@@ -502,7 +502,7 @@
       <battery>78</battery>
     </metrics>
     <timestamp>2025-03-09T12:48:44</timestamp>
-    <event_code hexBig="008D" hexLittle="8D00" decimal="141">141</event_code>
+    <event_code hexBig="0000008D" hexLittle="8D000000" decimal="2365587456">141</event_code>
   </entry>
   <entry id="37">
     <device>
@@ -516,7 +516,7 @@
       <battery>10</battery>
     </metrics>
     <timestamp/>
-    <event_code hexBig="0062" hexLittle="6200" decimal="98">98</event_code>
+    <event_code hexBig="00000062" hexLittle="62000000" decimal="1644167168">98</event_code>
   </entry>
   <entry id="38">
     <device>
@@ -530,7 +530,7 @@
       <battery>18</battery>
     </metrics>
     <timestamp>2025-01-19T10:11:08</timestamp>
-    <event_code hexBig="001E" hexLittle="1E00" decimal="30">30</event_code>
+    <event_code hexBig="0000001E" hexLittle="1E000000" decimal="503316480">30</event_code>
   </entry>
   <entry id="39">
     <device>
@@ -544,7 +544,7 @@
       <battery>52</battery>
     </metrics>
     <timestamp/>
-    <event_code hexBig="004B" hexLittle="4B00" decimal="75">75</event_code>
+    <event_code hexBig="0000004B" hexLittle="4B000000" decimal="1258291200">75</event_code>
   </entry>
   <entry id="40">
     <device>
@@ -558,7 +558,7 @@
       <battery>64</battery>
     </metrics>
     <timestamp>2025-02-09T02:11:02</timestamp>
-    <event_code hexBig="0024" hexLittle="2400" decimal="36">36</event_code>
+    <event_code hexBig="00000024" hexLittle="24000000" decimal="603979776">36</event_code>
   </entry>
   <entry id="41">
     <device>
@@ -572,7 +572,7 @@
       <battery>7</battery>
     </metrics>
     <timestamp>2025-03-07T10:57:41</timestamp>
-    <event_code hexBig="0037" hexLittle="3700" decimal="55">55</event_code>
+    <event_code hexBig="00000037" hexLittle="37000000" decimal="922746880">55</event_code>
   </entry>
   <entry id="42">
     <device>
@@ -586,7 +586,7 @@
       <battery>63</battery>
     </metrics>
     <timestamp>2025-01-23T17:21:22</timestamp>
-    <event_code hexBig="00A2" hexLittle="A200" decimal="162">162</event_code>
+    <event_code hexBig="000000A2" hexLittle="A2000000" decimal="2717908992">162</event_code>
   </entry>
   <entry id="43">
     <device>
@@ -600,7 +600,7 @@
       <battery>41</battery>
     </metrics>
     <timestamp>2025-03-03T17:14:53</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00000000" hexLittle="00000000" decimal="0">0</event_code>
   </entry>
   <entry id="44">
     <device>
@@ -614,7 +614,7 @@
       <battery>32</battery>
     </metrics>
     <timestamp/>
-    <event_code hexBig="00D1" hexLittle="D100" decimal="209">209</event_code>
+    <event_code hexBig="000000D1" hexLittle="D1000000" decimal="3506438144">209</event_code>
   </entry>
   <entry id="45">
     <device>
@@ -628,7 +628,7 @@
       <battery>43</battery>
     </metrics>
     <timestamp>2025-02-04T20:28:06</timestamp>
-    <event_code hexBig="009B" hexLittle="9B00" decimal="155">155</event_code>
+    <event_code hexBig="0000009B" hexLittle="9B000000" decimal="2600468480">155</event_code>
   </entry>
   <entry id="46">
     <device>
@@ -642,7 +642,7 @@
       <battery>65</battery>
     </metrics>
     <timestamp>2025-02-06T04:27:42</timestamp>
-    <event_code hexBig="0026" hexLittle="2600" decimal="38">38</event_code>
+    <event_code hexBig="00000026" hexLittle="26000000" decimal="637534208">38</event_code>
   </entry>
   <entry id="47">
     <device>
@@ -656,7 +656,7 @@
       <battery>97</battery>
     </metrics>
     <timestamp>2025-01-15T11:37:24</timestamp>
-    <event_code hexBig="00C9" hexLittle="C900" decimal="201">201</event_code>
+    <event_code hexBig="000000C9" hexLittle="C9000000" decimal="3372220416">201</event_code>
   </entry>
   <entry id="48">
     <device>
@@ -670,7 +670,7 @@
       <battery>86</battery>
     </metrics>
     <timestamp>2025-02-22T19:44:19</timestamp>
-    <event_code hexBig="0056" hexLittle="5600" decimal="86">86</event_code>
+    <event_code hexBig="00000056" hexLittle="56000000" decimal="1442840576">86</event_code>
   </entry>
   <entry id="49">
     <device>
@@ -684,7 +684,7 @@
       <battery>42</battery>
     </metrics>
     <timestamp>2025-01-30T18:41:24</timestamp>
-    <event_code hexBig="00C7" hexLittle="C700" decimal="199">199</event_code>
+    <event_code hexBig="000000C7" hexLittle="C7000000" decimal="3338665984">199</event_code>
   </entry>
   <entry id="50">
     <device>
@@ -698,6 +698,6 @@
       <battery>67</battery>
     </metrics>
     <timestamp>2025-02-02T20:14:58</timestamp>
-    <event_code hexBig="003D" hexLittle="3D00" decimal="61">61</event_code>
+    <event_code hexBig="0000003D" hexLittle="3D000000" decimal="1023410176">61</event_code>
   </entry>
 </smartlogs>

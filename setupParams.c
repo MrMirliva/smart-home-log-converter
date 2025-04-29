@@ -6,6 +6,9 @@
 #include <json-c/json.h>
 #include "setupParams.h"
 
+// setupParams.c
+// JSON dosyasını oku ve SetupParams yapısını doldur
+
 int readSetupParams(const char *filename, SetupParams *params) {
     FILE *fp = fopen(filename, "r");
     if (!fp) {

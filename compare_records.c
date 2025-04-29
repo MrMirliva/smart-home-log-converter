@@ -6,6 +6,16 @@ extern int keyStart;
 extern int keyEnd;
 extern int orderAsc;
 
+// Kayıtları karşılaştırmak için kullanılan fonksiyon
+// Bu fonksiyon, kayıtları sıralamak için kullanılır
+// keyStart ve keyEnd değişkenlerine göre karşılaştırma yapar
+// orderAsc değişkenine göre sıralama yönünü belirler
+// 1: artan, 0: azalan
+// Kayıtları karşılaştırmak için kullanılan fonksiyon
+// Bu fonksiyon, kayıtları sıralamak için kullanılır
+// keyStart ve keyEnd değişkenlerine göre karşılaştırma yapar
+// orderAsc değişkenine göre sıralama yönünü belirler
+// 1: artan, 0: azalan
 int compare_records(const void *a, const void *b) {
     const Record *recA = (const Record *)a;
     const Record *recB = (const Record *)b;

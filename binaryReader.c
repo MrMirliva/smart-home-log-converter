@@ -2,6 +2,13 @@
 #include <stdlib.h>
 #include "binaryReader.h"
 
+// Binary dosyayı oku ve kayıtları yükle
+// Binary dosyayı oku ve kayıtları yükle
+// Bu fonksiyon, binary dosyayı okuyarak kayıtları belleğe yükler
+// ve kayıt sayısını döndürür.
+// filename: Okunacak binary dosyanın adı
+// record_count: Kayıt sayısını döndüren işaretçi
+// return: Okunan kayıtların işaretçisi
 Record* read_binary_file(const char *filename, int *record_count) {
     FILE *fp = fopen(filename, "rb");
     if (!fp) {

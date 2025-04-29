@@ -28,14 +28,20 @@ void parse_csv_line(char *line, Record *record, char separator);
 // Complile kodu
 // gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c xmlWriter.c -I/usr/include/libxml2 -ljson-c -lxml2 -o deviceTool
 
-
-
 int main(int argc, char *argv[]) {
+
+    ///Somunda burasi da fixlendi
+    // Eğer -h argümanı verilmişse yardım mesajını göster
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-h") == 0) {
+            display_help();
+            return 0;
+        }
+    }
 
     // Komut satırı argümanlarını kontrol ediyoruz
     if (argc < 6) {
-        printf("Eksik argüman!n");
-        display_help();
+        printf("Eksik argüman!n YArdım için -h kullanın.\n");
         return 1;
     }
 
@@ -291,8 +297,10 @@ void display_help() {
     printf("<conversion_type> = 1: CSV->Binary, 2: Binary->XML, 3: XML Validation\n");
     printf("-separator <1|2|3>  = Alan ayırıcı (1=virgül, 2=tab, 3=semicolon)\n");
     printf("-opsys <1|2|3>      = Satır sonu karakteri (1=Windows, 2=Linux, 3=MacOS)\n");
+    printf("-h               = Yardım mesajını göster\n");
     printf("\n# Examples:\n");
     printf("./deviceTool smartlogs.csv logdata.dat 1 -separator 1 -opsys 2\n");
     printf("./deviceTool smartlogs.dat smartlogs.xml 2 -separator 1 -opsys 2\n");
     printf("./deviceTool smartlogs.xml smartlogs.xsd 3 -separator 1 -opsys 2\n");
+    printf("./deviceTool -h\n");
 }

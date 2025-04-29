@@ -6,16 +6,25 @@
 
 // Helper: event_code'dan hexBig ve hexLittle endian string üret
 void format_event_code(int event_code, char *hexBig, char *hexLittle, char *convertedDecimal) {
-    unsigned char high = (event_code >> 8) & 0xFF;
-    unsigned char low = event_code & 0xFF;
+    // 32 bit tam sayı gibi ele al
+    unsigned int value = (unsigned int)event_code;
 
-    // Big Endian ve Little Endian formatta hex string hazırla
-    sprintf(hexBig, "%02X%02X", high, low);
-    sprintf(hexLittle, "%02X%02X", low, high);
+    // hexBig = 8 karakterlik büyük endian formatı
+    sprintf(hexBig, "%08X", value);
 
-    // Converted decimal string
-    sprintf(convertedDecimal, "%d", event_code);
+    // hexLittle = küçük endian formata çevirmek gerek
+    unsigned int b0 = (value & 0xFF000000) >> 24;
+    unsigned int b1 = (value & 0x00FF0000) >> 8;
+    unsigned int b2 = (value & 0x0000FF00) << 8;
+    unsigned int b3 = (value & 0x000000FF) << 24;
+    unsigned int littleEndian = b0 | b1 | b2 | b3;
+
+    sprintf(hexLittle, "%08X", littleEndian);
+
+    // convertedDecimal = littleEndian'ın decimal hali
+    sprintf(convertedDecimal, "%u", littleEndian);
 }
+
 
 void create_xml(const Record *records, int record_count, const char *xml_filename) {
     xmlDocPtr doc = NULL;
