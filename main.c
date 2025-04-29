@@ -90,23 +90,6 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
         return;
     }
 
-    /*SetupParams params;
-    if (readSetupParams("setupParams.json", &params)) {
-        printf("\n✅ setupParams.json dosyasından okunan değerler:\n");
-        printf("Dosya Adı: %s\n", params.dataFileName);
-        printf("Key Start: %d\n", params.keyStart);
-        printf("Key End: %d\n", params.keyEnd);
-        printf("Order: %s\n", params.order);
-
-        keyStart = params.keyStart;
-        keyEnd = params.keyEnd;
-        orderAsc = (strcmp(params.order, "ASC") == 0) ? 1 : 0;
-
-    } else {
-        printf("❌ setupParams.json dosyası okunamadı!\n");
-        return;
-    }*/
-
     // CSV dosyasını oku
     FILE *csv = fopen(input_csv, "r");
     if (!csv) {
@@ -122,7 +105,7 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
         return;
     }
 
-    char line[512]; // Bir satır için buffer
+    char line[1024]; // Bir satır için buffer
     fgets(line, sizeof(line), csv); // İlk satır başlık, atla
 
     // Satırları oku ve binary dosyaya yaz
@@ -252,26 +235,50 @@ void trim_newline(char *str) {
 
 // CSV satırını Record yapısına parse eder
 void parse_csv_line(char *line, Record *record, char separator) {
-    char *token;
-    int field = 0;
+    char *fields[10] = {0};
+    int field_idx = 0;
 
-    token = strtok(line, &separator);
-    while (token != NULL) {
-        switch (field) {
-            case 0: strncpy(record->device_id, token, sizeof(record->device_id) - 1); break;
-            case 1: strncpy(record->timestamp, token, sizeof(record->timestamp) - 1); break;
-            case 2: record->temperature = atof(token); break;
-            case 3: record->humidity = atoi(token); break;
-            case 4: strncpy(record->status, token, sizeof(record->status) - 1); break; // ✅ EMOJİ FIX
-            case 5: strncpy(record->location, token, sizeof(record->location) - 1); break;
-            case 6: strncpy(record->alert_level, token, sizeof(record->alert_level) - 1); break;
-            case 7: record->battery = atoi(token); break;
-            case 8: strncpy(record->firmware_ver, token, sizeof(record->firmware_ver) - 1); break;
-            case 9: record->event_code = atoi(token); break;
+    char *start = line;
+    char *ptr = line;
+
+    while (*ptr != '\0' && field_idx < 10) {
+        if (*ptr == separator) {
+            *ptr = '\0';
+            fields[field_idx++] = start;
+            start = ptr + 1;
         }
-        field++;
-        token = strtok(NULL, &separator);
+        ptr++;
     }
+    fields[field_idx++] = start; // son alanı da yakala
+
+    // Şimdi fields[] dizisinden record doldur
+    strncpy(record->device_id, fields[0] ? fields[0] : "", sizeof(record->device_id) - 1);
+    strncpy(record->timestamp, fields[1] ? fields[1] : "", sizeof(record->timestamp) - 1);
+    record->temperature = fields[2] ? atof(fields[2]) : 0.0;
+    record->humidity = fields[3] ? atoi(fields[3]) : 0;
+    strncpy(record->status, fields[4] ? fields[4] : "", sizeof(record->status) - 1);
+    strncpy(record->location, fields[5] ? fields[5] : "", sizeof(record->location) - 1);
+    strncpy(record->alert_level, fields[6] ? fields[6] : "", sizeof(record->alert_level) - 1);
+    record->battery = fields[7] ? atoi(fields[7]) : 0;
+    strncpy(record->firmware_ver, fields[8] ? fields[8] : "", sizeof(record->firmware_ver) - 1);
+    record->event_code = fields[9] ? atoi(fields[9]) : 0;
+
+
+
+    //SADECE BİR TEST KODU :D
+    /*// Record içeriğini yazdır
+    printf("Record:\n");
+    printf("  Device ID: %s\n", record->device_id);
+    printf("  Timestamp: %s\n", record->timestamp);
+    printf("  Temperature: %.2f\n", record->temperature);
+    printf("  Humidity: %d\n", record->humidity);
+    printf("  Status: %s\n", record->status);
+    printf("  Location: %s\n", record->location);
+    printf("  Alert Level: %s\n", record->alert_level);
+    printf("  Battery: %d\n", record->battery);
+    printf("  Firmware Version: %s\n", record->firmware_ver);
+    printf("  Event Code: %d\n", record->event_code);
+    */
 }
 
 // Yardım mesajı fonksiyonu

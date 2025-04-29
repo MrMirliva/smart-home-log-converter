@@ -3,16 +3,16 @@
   <entry id="1">
     <device>
       <device_id>ALD4583</device_id>
-      <location>HIGH</location>
-      <firmware_ver>109</firmware_ver>
+      <location>Remote Node</location>
+      <firmware_ver>v0.8.6</firmware_ver>
     </device>
-    <metrics status="Remote " alert_level="1">
+    <metrics status="🔴" alert_level="HIGH">
       <temperature>-22.30</temperature>
       <humidity>0</humidity>
-      <battery>0</battery>
+      <battery>1</battery>
     </metrics>
     <timestamp>2025-03-11T16:28:03</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="006D" hexLittle="6D00" decimal="109">109</event_code>
   </entry>
   <entry id="2">
     <device>
@@ -48,41 +48,41 @@
       <location>Lab 42</location>
       <firmware_ver/>
     </device>
-    <metrics status="🔴" alert_level="0">
+    <metrics status="🔴" alert_level="">
       <temperature>-29.10</temperature>
       <humidity>68</humidity>
-      <battery>204</battery>
+      <battery>0</battery>
     </metrics>
     <timestamp>2025-01-19T17:23:03</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00CC" hexLittle="CC00" decimal="204">204</event_code>
   </entry>
   <entry id="5">
     <device>
       <device_id>COR6975</device_id>
-      <location>65</location>
-      <firmware_ver/>
+      <location/>
+      <firmware_ver>v4.0.0</firmware_ver>
     </device>
-    <metrics status="🟢" alert_level="v4.0.0">
+    <metrics status="🟢" alert_level="">
       <temperature>47.00</temperature>
       <humidity>49</humidity>
-      <battery>89</battery>
+      <battery>65</battery>
     </metrics>
     <timestamp>2025-03-11T20:36:51</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0059" hexLittle="5900" decimal="89">89</event_code>
   </entry>
   <entry id="6">
     <device>
       <device_id>DCE2114</device_id>
-      <location>MEDI</location>
-      <firmware_ver>144</firmware_ver>
+      <location/>
+      <firmware_ver/>
     </device>
-    <metrics status="⚠️" alert_level="M">
+    <metrics status="⚠️" alert_level="MEDIUM">
       <temperature>51.00</temperature>
       <humidity>77</humidity>
       <battery>57</battery>
     </metrics>
     <timestamp>2025-03-16T08:31:11</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0090" hexLittle="9000" decimal="144">144</event_code>
   </entry>
   <entry id="7">
     <device>
@@ -129,86 +129,86 @@
   <entry id="10">
     <device>
       <device_id>DVC1007</device_id>
-      <location>HIGH</location>
-      <firmware_ver>243</firmware_ver>
+      <location/>
+      <firmware_ver>v1.3.2</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="43">
+    <metrics status="⚠️" alert_level="HIGH">
       <temperature>28.60</temperature>
       <humidity>56</humidity>
-      <battery>0</battery>
+      <battery>43</battery>
     </metrics>
     <timestamp>2025-02-13T09:52:41</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00F3" hexLittle="F300" decimal="243">243</event_code>
   </entry>
   <entry id="11">
     <device>
       <device_id>DZB4932</device_id>
       <location>Warehouse A</location>
-      <firmware_ver>173</firmware_ver>
+      <firmware_ver>v0.8.7</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="63">
+    <metrics status="⚠️" alert_level="">
       <temperature>34.60</temperature>
       <humidity>50</humidity>
-      <battery>0</battery>
+      <battery>63</battery>
     </metrics>
     <timestamp>2025-02-24T09:34:56</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00AD" hexLittle="AD00" decimal="173">173</event_code>
   </entry>
   <entry id="12">
     <device>
       <device_id>EQY0199</device_id>
-      <location>LOW</location>
-      <firmware_ver>226</firmware_ver>
+      <location>Remote Node</location>
+      <firmware_ver>v2.3.6</firmware_ver>
     </device>
-    <metrics status="Remote " alert_level="98">
-      <temperature>19.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="⚠️" alert_level="LOW">
+      <temperature>10.50</temperature>
+      <humidity>19</humidity>
+      <battery>98</battery>
     </metrics>
-    <timestamp>10.5</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp/>
+    <event_code hexBig="00E2" hexLittle="E200" decimal="226">226</event_code>
   </entry>
   <entry id="13">
     <device>
-      <device_id>FK</device_id>
-      <location>🟢</location>
-      <firmware_ver>30</firmware_ver>
+      <device_id>FKU0851</device_id>
+      <location>Server Room</location>
+      <firmware_ver>v5.6.9</firmware_ver>
     </device>
-    <metrics status="12" alert_level="Server Ro">
-      <temperature>2025.00</temperature>
-      <humidity>-6</humidity>
-      <battery>0</battery>
+    <metrics status="🟢" alert_level="LOW">
+      <temperature>-6.10</temperature>
+      <humidity>12</humidity>
+      <battery>30</battery>
     </metrics>
-    <timestamp>0851</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp>2025-01-28T01:35:40</timestamp>
+    <event_code hexBig="00F1" hexLittle="F100" decimal="241">241</event_code>
   </entry>
   <entry id="14">
     <device>
       <device_id>HMD1395</device_id>
       <location>Data Center 1</location>
-      <firmware_ver>100</firmware_ver>
+      <firmware_ver>v0.3.3</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="MEDI">
+    <metrics status="⚠️" alert_level="MEDIUM">
       <temperature>45.20</temperature>
       <humidity>12</humidity>
-      <battery>0</battery>
+      <battery>100</battery>
     </metrics>
     <timestamp>2025-03-29T12:45:49</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="008D" hexLittle="8D00" decimal="141">141</event_code>
   </entry>
   <entry id="15">
     <device>
       <device_id>HWG4012</device_id>
-      <location>LOW</location>
-      <firmware_ver>24</firmware_ver>
+      <location>Remote Node</location>
+      <firmware_ver>v4.2.6</firmware_ver>
     </device>
-    <metrics status="Remote " alert_level="34">
-      <temperature>98.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="🔴" alert_level="LOW">
+      <temperature>0.00</temperature>
+      <humidity>98</humidity>
+      <battery>34</battery>
     </metrics>
     <timestamp>2025-03-05T07:25:05</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0018" hexLittle="1800" decimal="24">24</event_code>
   </entry>
   <entry id="16">
     <device>
@@ -227,16 +227,16 @@
   <entry id="17">
     <device>
       <device_id>ION4184</device_id>
-      <location>HIGH</location>
-      <firmware_ver>149</firmware_ver>
+      <location/>
+      <firmware_ver>v5.5.3</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="92">
+    <metrics status="⚠️" alert_level="HIGH">
       <temperature>-21.70</temperature>
       <humidity>44</humidity>
-      <battery>0</battery>
+      <battery>92</battery>
     </metrics>
     <timestamp>2025-01-29T02:09:03</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0095" hexLittle="9500" decimal="149">149</event_code>
   </entry>
   <entry id="18">
     <device>
@@ -254,23 +254,9 @@
   </entry>
   <entry id="19">
     <device>
-      <device_id>K</device_id>
-      <location>⚠️</location>
-      <firmware_ver>100</firmware_ver>
-    </device>
-    <metrics status="9" alert_level="Lab 42">
-      <temperature>2025.00</temperature>
-      <humidity>34</humidity>
-      <battery>0</battery>
-    </metrics>
-    <timestamp>K4136</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
-  </entry>
-  <entry id="20">
-    <device>
       <device_id>KAI0375</device_id>
       <location>Main Office</location>
-      <firmware_ver>225</firmware_ver>
+      <firmware_ver/>
     </device>
     <metrics status="🔴" alert_level="HIGH">
       <temperature>41.70</temperature>
@@ -278,9 +264,9 @@
       <battery>58</battery>
     </metrics>
     <timestamp>2025-01-24T13:40:23</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00E1" hexLittle="E100" decimal="225">225</event_code>
   </entry>
-  <entry id="21">
+  <entry id="20">
     <device>
       <device_id>KLH4167</device_id>
       <location>Main Office</location>
@@ -294,19 +280,33 @@
     <timestamp>2025-02-25T10:28:21</timestamp>
     <event_code hexBig="0036" hexLittle="3600" decimal="54">54</event_code>
   </entry>
+  <entry id="21">
+    <device>
+      <device_id>KUK4136</device_id>
+      <location>Lab 42</location>
+      <firmware_ver>v0.3.6</firmware_ver>
+    </device>
+    <metrics status="⚠️" alert_level="HIGH">
+      <temperature>34.80</temperature>
+      <humidity>9</humidity>
+      <battery>100</battery>
+    </metrics>
+    <timestamp>2025-03-10T13:17:53</timestamp>
+    <event_code hexBig="00D5" hexLittle="D500" decimal="213">213</event_code>
+  </entry>
   <entry id="22">
     <device>
       <device_id>MFN4233</device_id>
-      <location>LOW</location>
-      <firmware_ver>62</firmware_ver>
+      <location>Data Center 1</location>
+      <firmware_ver>v1.9.2</firmware_ver>
     </device>
-    <metrics status="Data Ce" alert_level="8">
+    <metrics status="" alert_level="LOW">
       <temperature>11.70</temperature>
       <humidity>59</humidity>
-      <battery>0</battery>
+      <battery>8</battery>
     </metrics>
     <timestamp>2025-02-26T19:19:32</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="003E" hexLittle="3E00" decimal="62">62</event_code>
   </entry>
   <entry id="23">
     <device>
@@ -325,69 +325,69 @@
   <entry id="24">
     <device>
       <device_id>MVR3858</device_id>
-      <location>CRITICAL</location>
+      <location>Data Center 1</location>
       <firmware_ver/>
     </device>
-    <metrics status="Data Ce" alert_level="73">
-      <temperature>96.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="🟢" alert_level="CRITICAL">
+      <temperature>56.30</temperature>
+      <humidity>96</humidity>
+      <battery>73</battery>
     </metrics>
-    <timestamp>56.3</timestamp>
+    <timestamp/>
     <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
   </entry>
   <entry id="25">
     <device>
-      <device_id>N</device_id>
-      <location>🔴</location>
-      <firmware_ver>88</firmware_ver>
+      <device_id>NUH2880</device_id>
+      <location>Data Center 1</location>
+      <firmware_ver>v4.4.5</firmware_ver>
     </device>
-    <metrics status="85" alert_level="Data Cent">
-      <temperature>2025.00</temperature>
-      <humidity>1</humidity>
-      <battery>0</battery>
+    <metrics status="🔴" alert_level="CRITICAL">
+      <temperature>1.00</temperature>
+      <humidity>85</humidity>
+      <battery>88</battery>
     </metrics>
-    <timestamp>H2880</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp>2025-03-23T06:46:55</timestamp>
+    <event_code hexBig="00E6" hexLittle="E600" decimal="230">230</event_code>
   </entry>
   <entry id="26">
     <device>
       <device_id>PBH9668</device_id>
-      <location>CRITICAL</location>
-      <firmware_ver>60</firmware_ver>
+      <location>Lab 42</location>
+      <firmware_ver>v2.4.8</firmware_ver>
     </device>
-    <metrics status="Lab 42" alert_level="66">
+    <metrics status="⚠️" alert_level="CRITICAL">
       <temperature>-14.40</temperature>
       <humidity>0</humidity>
-      <battery>0</battery>
+      <battery>66</battery>
     </metrics>
     <timestamp>2025-03-18T19:36:41</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="003C" hexLittle="3C00" decimal="60">60</event_code>
   </entry>
   <entry id="27">
     <device>
       <device_id>PFA4368</device_id>
       <location>Data Center 1</location>
-      <firmware_ver>9</firmware_ver>
+      <firmware_ver>v0.7.3</firmware_ver>
     </device>
-    <metrics status="🔴" alert_level="MEDI">
+    <metrics status="🔴" alert_level="MEDIUM">
       <temperature>-11.50</temperature>
       <humidity>11</humidity>
-      <battery>0</battery>
+      <battery>9</battery>
     </metrics>
     <timestamp>2025-01-26T12:08:15</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00BB" hexLittle="BB00" decimal="187">187</event_code>
   </entry>
   <entry id="28">
     <device>
       <device_id>PMA1706</device_id>
       <location>Server Room</location>
-      <firmware_ver>38</firmware_ver>
+      <firmware_ver>v3.9.1</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="MEDI">
+    <metrics status="⚠️" alert_level="MEDIUM">
       <temperature>44.90</temperature>
       <humidity>59</humidity>
-      <battery>0</battery>
+      <battery>38</battery>
     </metrics>
     <timestamp>2025-03-03T15:38:40</timestamp>
     <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
@@ -409,30 +409,30 @@
   <entry id="30">
     <device>
       <device_id>PVP2052</device_id>
-      <location>CRITICAL</location>
-      <firmware_ver>71</firmware_ver>
+      <location>Remote Node</location>
+      <firmware_ver>v4.7.8</firmware_ver>
     </device>
-    <metrics status="Remote " alert_level="42">
+    <metrics status="" alert_level="CRITICAL">
       <temperature>1.20</temperature>
       <humidity>46</humidity>
-      <battery>0</battery>
+      <battery>42</battery>
     </metrics>
     <timestamp>2025-02-14T18:02:11</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0047" hexLittle="4700" decimal="71">71</event_code>
   </entry>
   <entry id="31">
     <device>
       <device_id>QCE6182</device_id>
-      <location>M</location>
-      <firmware_ver>128</firmware_ver>
+      <location/>
+      <firmware_ver>v0.4.7</firmware_ver>
     </device>
-    <metrics status="MEDI" alert_level="10">
+    <metrics status="" alert_level="MEDIUM">
       <temperature>35.40</temperature>
       <humidity>55</humidity>
-      <battery>0</battery>
+      <battery>10</battery>
     </metrics>
     <timestamp>2025-03-19T06:28:25</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0080" hexLittle="8000" decimal="128">128</event_code>
   </entry>
   <entry id="32">
     <device>
@@ -451,44 +451,44 @@
   <entry id="33">
     <device>
       <device_id>SDB4575</device_id>
-      <location>HIGH</location>
-      <firmware_ver>174</firmware_ver>
+      <location/>
+      <firmware_ver>v2.0.1</firmware_ver>
     </device>
-    <metrics status="🟢" alert_level="24">
+    <metrics status="🟢" alert_level="HIGH">
       <temperature>-10.90</temperature>
       <humidity>77</humidity>
-      <battery>0</battery>
+      <battery>24</battery>
     </metrics>
     <timestamp>2025-02-26T22:08:02</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00AE" hexLittle="AE00" decimal="174">174</event_code>
   </entry>
   <entry id="34">
     <device>
       <device_id>SKO6495</device_id>
-      <location>HIGH</location>
-      <firmware_ver>203</firmware_ver>
+      <location>Outdoor Sensor</location>
+      <firmware_ver>v0.3.0</firmware_ver>
     </device>
-    <metrics status="Outdoor" alert_level="24">
+    <metrics status="🔴" alert_level="HIGH">
       <temperature>13.00</temperature>
       <humidity>0</humidity>
-      <battery>0</battery>
+      <battery>24</battery>
     </metrics>
     <timestamp>2025-01-03T09:12:17</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00CB" hexLittle="CB00" decimal="203">203</event_code>
   </entry>
   <entry id="35">
     <device>
-      <device_id>SR</device_id>
-      <location>⚠️</location>
-      <firmware_ver>M</firmware_ver>
+      <device_id>SRU2045</device_id>
+      <location>Main Office</location>
+      <firmware_ver>v2.0.0</firmware_ver>
     </device>
-    <metrics status="65" alert_level="Main Offi">
-      <temperature>2025.00</temperature>
-      <humidity>54</humidity>
-      <battery>0</battery>
+    <metrics status="⚠️" alert_level="MEDIUM">
+      <temperature>54.70</temperature>
+      <humidity>65</humidity>
+      <battery>8</battery>
     </metrics>
-    <timestamp>2045</timestamp>
-    <event_code hexBig="0008" hexLittle="0800" decimal="8">8</event_code>
+    <timestamp>2025-01-28T16:29:09</timestamp>
+    <event_code hexBig="0098" hexLittle="9800" decimal="152">152</event_code>
   </entry>
   <entry id="36">
     <device>
@@ -507,16 +507,16 @@
   <entry id="37">
     <device>
       <device_id>VEL1402</device_id>
-      <location>10</location>
-      <firmware_ver/>
+      <location/>
+      <firmware_ver>v1.0.8</firmware_ver>
     </device>
-    <metrics status="CRITICA" alert_level="v1.0.8">
-      <temperature>72.00</temperature>
-      <humidity>0</humidity>
-      <battery>98</battery>
+    <metrics status="🔴" alert_level="CRITICAL">
+      <temperature>29.20</temperature>
+      <humidity>72</humidity>
+      <battery>10</battery>
     </metrics>
-    <timestamp>29.2</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp/>
+    <event_code hexBig="0062" hexLittle="6200" decimal="98">98</event_code>
   </entry>
   <entry id="38">
     <device>
@@ -535,24 +535,24 @@
   <entry id="39">
     <device>
       <device_id>VQM9299</device_id>
-      <location>v4.2.2</location>
-      <firmware_ver/>
+      <location/>
+      <firmware_ver>v4.2.2</firmware_ver>
     </device>
-    <metrics status="52" alert_level="75">
+    <metrics status="" alert_level="MEDIUM">
       <temperature>0.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+      <humidity>89</humidity>
+      <battery>52</battery>
     </metrics>
-    <timestamp>89</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp/>
+    <event_code hexBig="004B" hexLittle="4B00" decimal="75">75</event_code>
   </entry>
   <entry id="40">
     <device>
       <device_id>XAL4323</device_id>
-      <location>MEDI</location>
+      <location>Data Center 1</location>
       <firmware_ver>v5.8.9</firmware_ver>
     </device>
-    <metrics status="Data Ce" alert_level="M">
+    <metrics status="🟢" alert_level="MEDIUM">
       <temperature>-27.30</temperature>
       <humidity>0</humidity>
       <battery>64</battery>
@@ -563,26 +563,26 @@
   <entry id="41">
     <device>
       <device_id>XFY2494</device_id>
-      <location>CRITICAL</location>
-      <firmware_ver>55</firmware_ver>
+      <location/>
+      <firmware_ver>v5.8.2</firmware_ver>
     </device>
-    <metrics status="🟢" alert_level="7">
+    <metrics status="🟢" alert_level="CRITICAL">
       <temperature>-3.00</temperature>
       <humidity>71</humidity>
-      <battery>0</battery>
+      <battery>7</battery>
     </metrics>
     <timestamp>2025-03-07T10:57:41</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0037" hexLittle="3700" decimal="55">55</event_code>
   </entry>
   <entry id="42">
     <device>
       <device_id>XIK8107</device_id>
-      <location>MEDI</location>
+      <location>Data Center 1</location>
       <firmware_ver>v2.6.2</firmware_ver>
     </device>
-    <metrics status="Data Ce" alert_level="M">
-      <temperature>28.00</temperature>
-      <humidity>0</humidity>
+    <metrics status="⚠️" alert_level="MEDIUM">
+      <temperature>0.00</temperature>
+      <humidity>28</humidity>
       <battery>63</battery>
     </metrics>
     <timestamp>2025-01-23T17:21:22</timestamp>
@@ -605,44 +605,44 @@
   <entry id="44">
     <device>
       <device_id>XLQ4838</device_id>
-      <location>v5.3.0</location>
-      <firmware_ver/>
+      <location/>
+      <firmware_ver>v5.3.0</firmware_ver>
     </device>
-    <metrics status="32" alert_level="209">
-      <temperature>67.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="🔴" alert_level="">
+      <temperature>25.70</temperature>
+      <humidity>67</humidity>
+      <battery>32</battery>
     </metrics>
-    <timestamp>25.7</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp/>
+    <event_code hexBig="00D1" hexLittle="D100" decimal="209">209</event_code>
   </entry>
   <entry id="45">
     <device>
-      <device_id>XQ</device_id>
+      <device_id>XQU3416</device_id>
       <location>Remote Node</location>
-      <firmware_ver>155</firmware_ver>
+      <firmware_ver>v0.5.6</firmware_ver>
     </device>
-    <metrics status="⚠️" alert_level="43">
-      <temperature>2025.00</temperature>
-      <humidity>-7</humidity>
-      <battery>0</battery>
+    <metrics status="⚠️" alert_level="">
+      <temperature>-7.40</temperature>
+      <humidity>0</humidity>
+      <battery>43</battery>
     </metrics>
-    <timestamp>3416</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <timestamp>2025-02-04T20:28:06</timestamp>
+    <event_code hexBig="009B" hexLittle="9B00" decimal="155">155</event_code>
   </entry>
   <entry id="46">
     <device>
       <device_id>YJR6674</device_id>
-      <location>CRITICAL</location>
-      <firmware_ver>38</firmware_ver>
+      <location>Warehouse A</location>
+      <firmware_ver>v2.2.7</firmware_ver>
     </device>
-    <metrics status="Warehou" alert_level="65">
-      <temperature>72.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="⚠️" alert_level="CRITICAL">
+      <temperature>0.00</temperature>
+      <humidity>72</humidity>
+      <battery>65</battery>
     </metrics>
     <timestamp>2025-02-06T04:27:42</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="0026" hexLittle="2600" decimal="38">38</event_code>
   </entry>
   <entry id="47">
     <device>
@@ -676,7 +676,7 @@
     <device>
       <device_id>ZHV2260</device_id>
       <location>Remote Node</location>
-      <firmware_ver>199</firmware_ver>
+      <firmware_ver/>
     </device>
     <metrics status="🔴" alert_level="CRITICAL">
       <temperature>29.10</temperature>
@@ -684,20 +684,20 @@
       <battery>42</battery>
     </metrics>
     <timestamp>2025-01-30T18:41:24</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="00C7" hexLittle="C700" decimal="199">199</event_code>
   </entry>
   <entry id="50">
     <device>
       <device_id>ZYN7909</device_id>
-      <location>v4.3.4</location>
-      <firmware_ver/>
+      <location/>
+      <firmware_ver>v4.3.4</firmware_ver>
     </device>
-    <metrics status="67" alert_level="61">
-      <temperature>78.00</temperature>
-      <humidity>0</humidity>
-      <battery>0</battery>
+    <metrics status="" alert_level="LOW">
+      <temperature>0.00</temperature>
+      <humidity>78</humidity>
+      <battery>67</battery>
     </metrics>
     <timestamp>2025-02-02T20:14:58</timestamp>
-    <event_code hexBig="0000" hexLittle="0000" decimal="0">0</event_code>
+    <event_code hexBig="003D" hexLittle="3D00" decimal="61">61</event_code>
   </entry>
 </smartlogs>
