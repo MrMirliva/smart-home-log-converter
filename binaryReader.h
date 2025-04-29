@@ -8,7 +8,7 @@ typedef struct {
     char timestamp[20];
     float temperature;
     int humidity;
-    char status;
+    char status[8];
     char location[31];
     char alert_level[10];
     int battery;

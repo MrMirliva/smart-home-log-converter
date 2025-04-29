@@ -25,22 +25,30 @@ char get_separator(int separator_arg);
 void trim_newline(char *str);
 void parse_csv_line(char *line, Record *record, char separator);
 
+// Complile kodu
 // gcc main.c setupParams.c binaryReader.c sort_records.c compare_records.c xmlWriter.c -I/usr/include/libxml2 -ljson-c -lxml2 -o deviceTool
 
+
+
 int main(int argc, char *argv[]) {
+
+    // Komut satırı argümanlarını kontrol ediyoruz
     if (argc < 6) {
         printf("Eksik argüman!n");
         display_help();
         return 1;
     }
 
-    // Argümanları oku
+    // Argümanlar okunuyor
     char* input_file = argv[1];
     char* output_file = argv[2];
     int conversion_type = atoi(argv[3]);
     int separator = -1;
     int opsys = -1;
 
+    // -separator ve -opsys argümanlarını kontrol et
+    // ve ayırıcı karakteri ve işletim sistemi türünü al
+    // 1: Windows, 2: Linux, 3: MacOS
     for (int i = 4; i < argc; i++) {
         if (strcmp(argv[i], "-separator") == 0 && (i + 1) < argc) {
             separator = atoi(argv[++i]);
@@ -49,6 +57,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    // Eğer -separator veya -opsys eksikse hata mesajı ver
     if (separator == -1 || opsys == -1) {
         printf("Hata: -separator ve -opsys parametreleri eksik!\n");
         return 1;
@@ -81,7 +90,7 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
         return;
     }
 
-    SetupParams params;
+    /*SetupParams params;
     if (readSetupParams("setupParams.json", &params)) {
         printf("\n✅ setupParams.json dosyasından okunan değerler:\n");
         printf("Dosya Adı: %s\n", params.dataFileName);
@@ -96,7 +105,7 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
     } else {
         printf("❌ setupParams.json dosyası okunamadı!\n");
         return;
-    }
+    }*/
 
     // CSV dosyasını oku
     FILE *csv = fopen(input_csv, "r");
@@ -116,6 +125,7 @@ void csv_to_binary(const char* input_csv, const char* output_binary, int separat
     char line[512]; // Bir satır için buffer
     fgets(line, sizeof(line), csv); // İlk satır başlık, atla
 
+    // Satırları oku ve binary dosyaya yaz
     while (fgets(line, sizeof(line), csv)) {
         trim_newline(line);
 
@@ -248,15 +258,15 @@ void parse_csv_line(char *line, Record *record, char separator) {
     token = strtok(line, &separator);
     while (token != NULL) {
         switch (field) {
-            case 0: strncpy(record->device_id, token, sizeof(record->device_id)-1); break;
-            case 1: strncpy(record->timestamp, token, sizeof(record->timestamp)-1); break;
+            case 0: strncpy(record->device_id, token, sizeof(record->device_id) - 1); break;
+            case 1: strncpy(record->timestamp, token, sizeof(record->timestamp) - 1); break;
             case 2: record->temperature = atof(token); break;
             case 3: record->humidity = atoi(token); break;
-            case 4: record->status = token[0]; break;
-            case 5: strncpy(record->location, token, sizeof(record->location)-1); break;
-            case 6: strncpy(record->alert_level, token, sizeof(record->alert_level)-1); break;
+            case 4: strncpy(record->status, token, sizeof(record->status) - 1); break; // ✅ EMOJİ FIX
+            case 5: strncpy(record->location, token, sizeof(record->location) - 1); break;
+            case 6: strncpy(record->alert_level, token, sizeof(record->alert_level) - 1); break;
             case 7: record->battery = atoi(token); break;
-            case 8: strncpy(record->firmware_ver, token, sizeof(record->firmware_ver)-1); break;
+            case 8: strncpy(record->firmware_ver, token, sizeof(record->firmware_ver) - 1); break;
             case 9: record->event_code = atoi(token); break;
         }
         field++;
