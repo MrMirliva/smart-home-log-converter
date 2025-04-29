@@ -3,7 +3,7 @@
 #include <string.h>
 #include <libxml/xmlschemas.h> 
 
-//
+// Kütüphaneler
 #include "setupParams.h"
 #include "binaryReader.h"
 #include "sort_records.h"

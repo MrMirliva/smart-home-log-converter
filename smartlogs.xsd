@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-    <xs:element name="logdata">
+    <!-- Ana veri yapısı: smartlogs -->
+    <xs:element name="smartlogs">
         <xs:complexType>
-            <xs:sequence>
-                <xs:element name="entry" minOccurs="0" maxOccurs="unbounded" type="entryType"/>
-            </xs:sequence>
+        <xs:sequence>
+            <!-- Her kayıt bir "entry" elemanı -->
+            <xs:element name="entry" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+
+                        <!-- Cihaz bilgileri: deviceType -->
+                        <xs:element name="device" type="deviceType"/>
+
+                        <!-- Ölçüm değerleri: metricsType -->
+                        <xs:element name="metrics" type="metricsType"/>
+
+                        <!-- Zaman damgası: ISO 8601 formatında, detaylı kontrol yok -->
+                        <xs:element name="timestamp" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+
+                        <!-- Event kodu: 0-255 arası, ekstra bilgiler attribute olarak -->
+                        <xs:element name="event_code">
+                            <xs:complexType>
+                            <xs:simpleContent>
+                                <xs:extension base="eventCodeType">
+                                <xs:attribute name="hexBig" type="xs:string" use="required"/>
+                                <xs:attribute name="hexLittle" type="xs:string" use="required"/>
+                                <xs:attribute name="convertedDecimal" type="xs:string" use="required"/>
+                                </xs:extension>
+                            </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+
+                    </xs:sequence>
+
+                    <!-- Her entry'nin id'si olacak (1,2,3 gibi) -->
+                    <xs:attribute name="id" type="xs:integer" use="required"/>
+
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:complexType name="entryType">
+    <xs:complexType name="deviceType">
         <xs:sequence>
+            <!-- Device ID: Üç harf + dört rakam (örn: THM1234) -->
             <xs:element name="device_id" type="deviceIdType"/>
-            <xs:element name="timestamp" type="temperatureType"/>
-            <xs:element name="temperature" type="xs:float"/>
-            <xs:element name="humidity" type="xs:int"/>
-            <xs:element name="status" type="xs:string"/>
-            <xs:element name="location" type="xs:string"/>
-            <xs:element name="alert_level" type="xs:string"/>
-            <xs:element name="battery" type="xs:int"/>
-            <xs:element name="firmware_ver" type="xs:string"/>
-            <xs:element name="event_code" type="event_codeType"/>
-                
+
+            <!-- Lokasyon bilgisi: Maksimum 30 karakter -->
+            <xs:element name="location" type="locationType"/>
+
+            <!-- Firmware versiyonu: vX.Y.Z şeklinde -->
+            <xs:element name="firmware_ver" type="firmwareType"/>
         </xs:sequence>
-        <xs:attribute name="id" type="xs:int" use="required"/>
+    </xs:complexType> 
+
+    <xs:complexType name="metricsType">
+        <xs:sequence>
+            <!-- Sıcaklık değeri: -30.0 ile 60.0 arası -->
+            <xs:element name="temperature" type="temperatureType"/>
+
+            <!-- Nem değeri: %0 - %100 arası -->
+            <xs:element name="humidity" type="humidityType"/>
+
+            <!-- Batarya durumu: 0-100 arası yüzde -->
+            <xs:element name="battery" type="batteryType"/>
+        </xs:sequence>
+        <!-- Cihaz durumu: Açık (!), Kapalı ("), Hatalı (⚠) -->
+        <xs:attribute name="status" type="statusType"/>
+        <!-- Alarm seviyesi: LOW, MEDIUM, HIGH, CRITICAL -->
+        <xs:attribute name="alert_level" type="alertLevelType"/>
     </xs:complexType>
 
     <xs:simpleType name="deviceIdType">
@@ -38,15 +86,57 @@
             <xs:maxInclusive value="60.0"/>
         </xs:restriction>
     </xs:simpleType>
-        
-    <xs:complexType name="event_codeType">
-        <xs:simpleContent>
-            <xs:extension base="xs:int">
-                <xs:attribute name="hexBig" type="xs:string" use="required"/>
-                <xs:attribute name="hexLittle" type="xs:string" use="required"/>
-                <xs:attribute name="convertedDecimal" type="xs:string" use="required"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
+
+    <xs:simpleType name="humidityType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="statusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="⚠️"/>
+            <xs:enumeration value="🔴"/>
+            <xs:enumeration value="🟢"/>
+            <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="locationType">
+        <xs:restriction base="xs:string">
+        <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="alertLevelType">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="LOW"/>
+        <xs:enumeration value="MEDIUM"/>
+        <xs:enumeration value="HIGH"/>
+        <xs:enumeration value="CRITICAL"/>
+        <xs:enumeration value=""/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="batteryType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="firmwareType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="v[0-9]+\.[0-9]+\.[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="eventCodeType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
 
 </xs:schema>
